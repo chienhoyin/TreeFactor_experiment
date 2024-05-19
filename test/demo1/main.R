@@ -192,32 +192,32 @@ print("####### 1/N ########")
 
 # ############# START OUTPUT #############
 
-# tf_train <- cbind(fit1$ft, fit2$ft)
-# # output factors
-# write.csv(data.frame(tf_train), paste0(case,"_bf_train",".csv"))
-# write.csv(data.frame(tf_test), paste0(case,"_bf_test",".csv"))
+tf_train <- cbind(fit1$ft, fit2$ft)
+# output factors
+write.csv(data.frame(tf_train), paste0(case,"_bf_train",".csv"))
+write.csv(data.frame(tf_test), paste0(case,"_bf_test",".csv"))
 
-# write.csv(data.frame(insPred1$leaf_index), paste0(case,"_leaf_index",".csv"))
-# write.csv(data.frame(months_train), paste0(case,"_months_train",".csv"))
-# write.csv(data.frame(R_train), paste0(case,"_R_train",".csv"))
-# write.csv(data.frame(portfolio_weight_train), paste0(case,"_weight_train",".csv"))
+write.csv(data.frame(insPred1$leaf_index), paste0(case,"_leaf_index",".csv"))
+write.csv(data.frame(months_train), paste0(case,"_months_train",".csv"))
+write.csv(data.frame(R_train), paste0(case,"_R_train",".csv"))
+write.csv(data.frame(portfolio_weight_train), paste0(case,"_weight_train",".csv"))
 
-# write.csv(data.frame(fit1$leaf_weight), paste0(case,"_leaf_weight",".csv"))
+write.csv(data.frame(fit1$leaf_weight), paste0(case,"_leaf_weight",".csv"))
 
-# ### output test,for plot mve ###
+### output test,for plot mve ###
 
-# write.csv(data.frame(pred1$leaf_index), paste0(case,"_leaf_index_test",".csv"))
-# write.csv(data.frame(months_test), paste0(case,"_months_test",".csv"))
+write.csv(data.frame(pred1$leaf_index), paste0(case,"_leaf_index_test",".csv"))
+write.csv(data.frame(months_test), paste0(case,"_months_test",".csv"))
 
-# write.csv(data.frame(R_test), paste0(case,"_R_test",".csv"))
-# write.csv(data.frame(portfolio_weight_test), paste0(case,"_weight_test",".csv"))
+write.csv(data.frame(R_test), paste0(case,"_R_test",".csv"))
+write.csv(data.frame(portfolio_weight_test), paste0(case,"_weight_test",".csv"))
 
 # ### output basis portfolio returns
 
-# write.csv(data.frame(fit1$portfolio), paste0(case,"_portfolio_fit1",".csv"))
-# write.csv(data.frame(pred1$portfolio), paste0(case,"_portfolio_pred1",".csv"))
+write.csv(data.frame(fit1$portfolio), paste0(case,"_portfolio_fit1",".csv"))
+write.csv(data.frame(pred1$portfolio), paste0(case,"_portfolio_pred1",".csv"))
 
-# write.csv(data.frame(fit2$portfolio), paste0(case,"_portfolio_fit2",".csv"))
-# write.csv(data.frame(pred2$portfolio), paste0(case,"_portfolio_pred2",".csv"))
+write.csv(data.frame(fit2$portfolio), paste0(case,"_portfolio_fit2",".csv"))
+write.csv(data.frame(pred2$portfolio), paste0(case,"_portfolio_pred2",".csv"))
 
 # ############# END OUTPUT #############

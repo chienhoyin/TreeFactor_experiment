@@ -52,6 +52,9 @@ load("../../data/simu_data.rda")
 print(names(da))
 
 data <- da
+#data is the dataframe containing return, market factor, macro indicator, and firm chars
+#xret, id, date, mkt, m1, m2, c1, c2, c3, c4, c5
+
 data['lag_me'] = 1
 
 tmp = data[,c('id', 'date','xret','lag_me', 
@@ -87,12 +90,19 @@ data2 <- data[(data[,c('date')]>split) & (data[,c('date')]<=end), ]
 ###### train data for all boosting steps #####
 X_train = data1[,splitting_chars]
 R_train = data1[,c("xret")]
+
+##turning the "date" and "id" columns of data1 into integer indice starting from 0
+
 months_train = as.numeric(as.factor(data1[,c("date")]))
 months_train = months_train - 1 # start from 0
 stocks_train = as.numeric(as.factor(data1[,c("id")])) - 1
+
+## define instruments, which is 1 and top 5 characteristics
 Z_train = data1[, instruments]
 Z_train = cbind(1, Z_train)
-portfolio_weight_train = data1[,c("lag_me")]
+
+
+portfolio_weight_train = data1[,c("lag_me")] 
 loss_weight_train = data1[,c("lag_me")]
 num_months = length(unique(months_train))
 num_stocks = length(unique(stocks_train))
@@ -101,6 +111,9 @@ num_stocks = length(unique(stocks_train))
 # the first H is the mkt
 Y_train1 = data1[,c("xret")]
 H_train1 = data1[,c("mkt")]
+
+## Create a panel of 1,char1*mkt,char2*mkt,...char5*mkt
+
 H_train1 = H_train1 * Z_train
 
 # train 1 
@@ -113,6 +126,7 @@ t = proc.time() - t
 print(t)
 
 # in sample check
+
 insPred1 = predict(fit1, X_train, R_train, months_train, portfolio_weight_train)
 sum((insPred1$ft - fit1$ft)^2)
 print(fit1$R2)

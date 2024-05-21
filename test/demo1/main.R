@@ -126,7 +126,7 @@ t = proc.time()
 fit1 = TreeFactor_APTree(R_train, Y_train1, X_train, Z_train, H_train1, portfolio_weight_train, 
 loss_weight_train, stocks_train, months_train, first_split_var, second_split_var, num_stocks, 
 num_months, min_leaf_size, max_depth, num_iter, num_cutpoints, eta, equal_weight, 
-no_H, abs_normalize, weighted_loss, stop_no_gain)
+no_H, abs_normalize, weighted_loss, stop_no_gain, lambda, lambda)
 t = proc.time() - t
 
 print(t)
@@ -162,7 +162,7 @@ t = proc.time()
 fit2 = TreeFactor_APTree(R_train, Y_train2, X_train, Z_train, H_train1, portfolio_weight_train, 
 loss_weight_train, stocks_train, months_train, first_split_var_boosting, second_split_var_boosting, num_stocks, 
 num_months, min_leaf_size, max_depth_boosting, num_iter, num_cutpoints, eta, equal_weight, 
-no_H2, abs_normalize, weighted_loss, stop_no_gain)
+no_H2, abs_normalize, weighted_loss, stop_no_gain, lambda, lambda)
 
 t = proc.time() - t
 print(t)

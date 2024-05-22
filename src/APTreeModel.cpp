@@ -389,7 +389,7 @@ void APTreeModel::calculate_criterion_one_variable(State &state, size_t var, std
             // too few data in the leaf, set criterion as infinity
             output[i] = std::numeric_limits<double>::max();
             cout << "too few data in the leaf, set criterion as infinity" << endl;
-            cout << "num_stocks_right" << num_stocks_right << endl;
+            //cout << "num_stocks_right" << num_stocks_right << endl;
             cout << "state.min_leaf_size" << state.min_leaf_size << endl;
             cout << "num_stocks_left.min() " << num_stocks_left.min() << endl;
             cout << "state.min_leaf_size" << state.min_leaf_size << endl;

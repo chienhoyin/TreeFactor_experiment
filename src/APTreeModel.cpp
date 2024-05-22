@@ -18,7 +18,7 @@ void APTreeModel::check_node_splitability(State &state, std::vector<APTree *> &b
         node = bottom_nodes_vec[i];
         //debug message
         
-        cout << "depth:" << "node->getdepth() <<endl;
+        cout << "depth:" << node->getdepth() <<endl;
         cout << "n:" << node->getN() <<endl;
             
 

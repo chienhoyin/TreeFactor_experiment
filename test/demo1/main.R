@@ -131,7 +131,7 @@ t = proc.time() - t
 
 print(t)
 
-print(fit1$cons_variables)
+print(fit1$numberic_variables)
 # in sample check
 
 insPred1 = predict(fit1, X_train, R_train, months_train, portfolio_weight_train)

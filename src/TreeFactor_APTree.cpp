@@ -101,20 +101,20 @@ Rcpp::List TreeFactor_APTree_cpp(arma::vec R, arma::vec Y, arma::mat X, arma::ma
     // calculating the pricing error of the factor, run regression
     double loss = model.calculate_R2(state, ft);
 
-    cout << num_months
-    cout << months_list
-    cout << num_stocks
-    cout << min_leaf_size
-    cout << max_depth
-    cout << num_cutpoints
-    cout << equal_weight
-    cout << no_H
-    cout << abs_normalize
-    cout << weighted_loss
-    cout << stop_no_gain
-    cout << eta
-    cout << lambda_mean
-    cout << lambda_cov
+    cout << num_months;
+    cout << months_list;
+    cout << num_stocks;
+    cout << min_leaf_size;
+    cout << max_depth;
+    cout << num_cutpoints;
+    cout << equal_weight;
+    cout << no_H;
+    cout << abs_normalize;
+    cout << weighted_loss;
+    cout << stop_no_gain;
+    cout << eta;
+    cout << lambda_mean;
+    cout << lambda_cov;
     
     return Rcpp::List::create(
         

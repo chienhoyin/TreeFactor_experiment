@@ -102,7 +102,7 @@ Rcpp::List TreeFactor_APTree_cpp(arma::vec R, arma::vec Y, arma::mat X, arma::ma
     double loss = model.calculate_R2(state, ft);
 
     return Rcpp::List::create(
-        Rcpp::Named("numeric_variables") = (num_months, months_list, num_stocks, min_leaf_size, max_depth, num_cutpoints, equal_weight, no_H, abs_normalize, weighted_loss, stop_no_gain, eta, lambda_mean, lambda_cov),
+        Rcpp::Named("numeric_variables") = c(num_months, months_list, num_stocks, min_leaf_size, max_depth, num_cutpoints, equal_weight, no_H, abs_normalize, weighted_loss, stop_no_gain, eta, lambda_mean, lambda_cov),
         Rcpp::Named("R") = R,
         Rcpp::Named("X") = X,
         Rcpp::Named("Xorder") = Xorder,

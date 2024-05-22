@@ -101,23 +101,23 @@ Rcpp::List TreeFactor_APTree_cpp(arma::vec R, arma::vec Y, arma::mat X, arma::ma
     // calculating the pricing error of the factor, run regression
     double loss = model.calculate_R2(state, ft);
 
-    cout << num_months;
-    cout << months_list;
-    cout << num_stocks;
-    cout << min_leaf_size;
-    cout << max_depth;
-    cout << num_cutpoints;
-    cout << equal_weight;
-    cout << no_H;
-    cout << abs_normalize;
-    cout << weighted_loss;
-    cout << stop_no_gain;
-    cout << eta;
-    cout << lambda_mean;
-    cout << lambda_cov;
+
+    
+    cout << "num_months: " << num_months << endl;
+    cout << "num_stocks: " << num_stocks << endl;
+    cout << "min_leaf_size: " << min_leaf_size << endl;
+    cout << "max_depth: " << max_depth << endl;
+    cout << "num_cutpoints: " << num_cutpoints << endl;
+    cout << "equal_weight: " << equal_weight << endl;
+    cout << "no_H: " << no_H << endl;
+    cout << "abs_normalize: " << abs_normalize << endl;
+    cout << "weighted_loss: " << weighted_loss << endl;
+    cout << "stop_no_gain: " << stop_no_gain << endl;
+    cout << "eta: " << eta << endl;
+    cout << "lambda_mean: " << lambda_mean << endl;
+    cout << "lambda_cov: " << lambda_cov << endl;
     
     return Rcpp::List::create(
-        
         Rcpp::Named("R") = R,
         Rcpp::Named("X") = X,
         Rcpp::Named("Xorder") = Xorder,

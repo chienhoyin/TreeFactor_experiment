@@ -388,6 +388,7 @@ void APTreeModel::calculate_criterion_one_variable(State &state, size_t var, std
         {
             // too few data in the leaf, set criterion as infinity
             output[i] = std::numeric_limits<double>::max();
+            cout << "too few data in the leaf"<< endl;
         }
         else
         {
@@ -407,7 +408,7 @@ void APTreeModel::calculate_criterion_one_variable(State &state, size_t var, std
 
             // mean variance efficient weight
             weight = arma::inv(sigma + state.lambda_cov * arma::eye(n_leafs, n_leafs)) * (mu + state.lambda_mean * arma::ones(mu.n_rows, mu.n_cols));
-
+            
             arma::vec equal_weight(n_leafs);
 
             equal_weight.fill(1.0 / n_leafs);

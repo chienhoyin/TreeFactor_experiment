@@ -460,6 +460,8 @@ void APTreeModel::calculate_criterion_one_variable(State &state, size_t var, std
                     output[i] = std::numeric_limits<double>::max();
                 }
             }
+            cout << " variable criterion:" <<output[i] <<endl;
+            
         }
 
         if (loop_index == (*Xorder).n_rows)

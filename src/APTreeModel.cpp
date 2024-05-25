@@ -387,9 +387,13 @@ void APTreeModel::calculate_criterion_one_variable(State &state, size_t var, std
         if (num_stocks_right.min() < state.min_leaf_size || num_stocks_left.min() < state.min_leaf_size || arma::accu(num_stocks_right) == 0 || arma::accu(num_stocks_left) == 0)
         {
             // too few data in the leaf, set criterion as infinity
+            
             output[i] = std::numeric_limits<double>::max();
+            
             cout << "too few data in the leaf, set criterion as infinity" << endl;
-            //cout << "num_stocks_right" << num_stocks_right << endl;
+            cout << "cutpoint:" << cutpoint<endl;
+            cout << "var" << var << endl;
+            cout << "num_stocks_right.min()" << num_stocks_right.min() << endl;
             cout << "state.min_leaf_size" << state.min_leaf_size << endl;
             cout << "num_stocks_left.min() " << num_stocks_left.min() << endl;
             cout << "state.min_leaf_size" << state.min_leaf_size << endl;

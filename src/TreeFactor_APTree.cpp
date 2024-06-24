@@ -79,25 +79,32 @@ Rcpp::List TreeFactor_APTree_cpp(arma::vec R, arma::vec Y, arma::mat X, arma::ma
     arma::mat all_leaf_portfolio, leaf_weight, ft;
 
     model.calculate_factor(root, leaf_node_index, all_leaf_portfolio, leaf_weight, ft, state);
-
     cout << "fitted tree " << endl;
     cout.precision(3);
-    cout << root << endl;
 
+    cout << "print command 1" << endl;
+    cout << root << endl;
+    cout<< endl;
+    cout << "print command 2" << endl;
     std::stringstream trees;
     Rcpp::StringVector output_tree(1);
     trees.precision(10);
     trees.str(std::string());
     trees << root;
     output_tree(0) = trees.str();
+    cout<< endl;
 
     // return pointer to the tree structure, cannot be restored if saving the environment in R
     // APTree *root_pnt = &root;
     // Rcpp::XPtr<APTree> tree_pnt(root_pnt, true);
+    
+    cout << "print command 3" << endl;
+    
     Rcpp::StringVector json_output(1);
     json j = tree_to_json(root);
     json_output[0] = j.dump(4);
-
+    cout<< endl;
+    
     // calculating the pricing error of the factor, run regression
     double loss = model.calculate_R2(state, ft);
 

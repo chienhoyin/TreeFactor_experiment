@@ -83,6 +83,9 @@ double fastLm_weighted(const arma::vec &y, const arma::mat &X, const arma::vec &
     size_t n = X.n_rows;
     size_t k = X.n_cols;
 
+    X = arma::diagmat(weight) * X
+    Y = arma::diagmat(weight) * Y
+    
     arma::colvec coef = arma::solve(X, y);
     arma::colvec resid = y - X * coef;
 

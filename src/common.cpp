@@ -87,7 +87,7 @@ double fastLm_weighted(const arma::vec &y, const arma::mat &X, const arma::vec &
     
     arma::vec sqrt_W = arma::pow(arma::diagmat(weight),0.5);
     X = sqrt_W * X;
-    Y = sqrt_W * Y;
+    y = sqrt_W * y;
     
     arma::colvec coef = arma::solve(X, y);
     arma::colvec resid = y - X * coef;

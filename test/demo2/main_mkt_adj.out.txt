@@ -1,8 +1,3 @@
-During startup - Warning messages:
-1: Setting LC_COLLATE failed, using "C" 
-2: Setting LC_TIME failed, using "C" 
-3: Setting LC_MESSAGES failed, using "C" 
-4: Setting LC_MONETARY failed, using "C" 
  [1] "xret" "id"   "date" "mkt"  "m1"   "m2"   "c1"   "c2"   "c3"   "c4"  
 [11] "c5"  
           [,1]
@@ -13,6 +8,26 @@ c3 0.478313798
 c4 0.006122526
 c5 0.035956585
 The split value candidates are -0.6, -0.2, 0.2, 0.6
+1
+80000
+2
+17037
+2
+62963
+3
+3642
+3
+13395
+2
+62963
+3
+3642
+3
+13395
+3
+15357
+3
+47606
 break of no node splitable
 fitted tree 
 7
@@ -24,10 +39,23 @@ fitted tree
 6 0 0 0 0
 7 0 0 0 0
 
+num_months: 80
+num_stocks: 100
+min_leaf_size: 10
+max_depth: 3
+num_cutpoints: 4
+equal_weight: 1
+no_H: 1
+abs_normalize: 1
+weighted_loss: 1
+stop_no_gain: 0
+eta: 0.0001
+lambda_mean: 0
+lambda_cov: 0
    user  system elapsed 
-  0.801   0.044   1.117 
+100.025   1.998   2.760 
 [1] 0.006778258
-[1] 5.930745e-33
+[1] 5.918844e-33
           [,1]
 1  -0.30304629
 c1  0.15212686

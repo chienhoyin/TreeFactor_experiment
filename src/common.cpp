@@ -85,7 +85,7 @@ double fastLm_weighted(const arma::vec &y, const arma::mat &X, const arma::vec &
 
     // updated to WLS for Sharpe ratio regression
     
-    sqrt_W = arma::pow(arma::diagmat(weight),0.5)
+    arma::vec sqrt_W = arma::pow(arma::diagmat(weight),0.5)
     X = sqrt_W * X
     Y = sqrt_W * Y
     

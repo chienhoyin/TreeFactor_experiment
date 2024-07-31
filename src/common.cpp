@@ -86,15 +86,15 @@ double fastLm_weighted(const arma::vec &y, const arma::mat &X, const arma::vec &
     // updated to WLS for Sharpe ratio regression
     
     arma::vec sqrt_W = arma::pow(arma::diagmat(weight),0.5);
-    X = sqrt_W * X;
-    y = sqrt_W * y;
+    arma::mat adj_X = sqrt_W * X;
+    arma::vec adj_y = sqrt_W * y;
     
-    arma::colvec coef = arma::solve(X, y);
-    arma::colvec resid = y - X * coef;
+    arma::colvec coef = arma::solve(adj_X, adj_y);
+    arma::colvec resid = adj_y - adj_X * coef;
 
     double sig2 = arma::as_scalar(arma::trans(resid) * resid / (n - k));
     arma::colvec stderrest =
-        arma::sqrt(sig2 * arma::diagvec(arma::inv(arma::trans(X) * X)));
+        arma::sqrt(sig2 * arma::diagvec(arma::inv(arma::trans(adj_X) * adj_X)));
 
     arma::colvec temp = arma::pow(resid, 2);
 

@@ -33,6 +33,8 @@ double fastLm(const arma::vec &y, const arma::mat &X);
 
 double fastLm_weighted(const arma::vec &y, const arma::mat &X, const arma::vec &weight);
 
+arma::vec fastLm_weighted_resid(const arma::mat &X1, const arma::mat &X2, const arma::vec &weight);
+
 bool sum(std::vector<bool> &v);
 
 class leaf_data

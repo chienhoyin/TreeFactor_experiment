@@ -14,7 +14,6 @@ public:
     arma::mat *F; // for Bayes tree
     arma::mat *regressor; // for Bayes tree
     arma::mat *H; // placeholder
-    arma::mat *prior_regressor; //
     arma::vec *weight;
     arma::vec *loss_weight;
     arma::vec *stocks; // pointer to the index of stocks, same number of rows as X
@@ -68,7 +67,6 @@ public:
         this->R = &R;
         this->Z = &Z;
         this->H = &H;
-        this->prior_regressor = &prior_regressor;
         this->weight = &portfolio_weight;
         this->loss_weight = &loss_weight;
         this->stocks = &stocks;

@@ -103,6 +103,26 @@ double fastLm_weighted(const arma::vec &y, const arma::mat &X, const arma::vec &
     return output;
 }
 
+arma::vec fastLm_weighted_resid(const arma::mat &X1, const arma::mat &X2, const arma::vec &weight)
+{
+    arma::vec sqrt_w = arma::pow(weight,0.5);
+    arma::mat adj_X1 = sqrt_w % X1.each_col();
+    arma::mat adj_X2 = sqrt_w % X2.each_col();
+    
+    arma::mat coef = arma::solve(adj_X2, adj_X1.each_col());
+    arma::mat resid = X1 - X2 * arma::trans(coef);
+
+    double sig2 = arma::as_scalar(arma::trans(resid) * resid / (n - k));
+    arma::colvec stderrest =
+        arma::sqrt(sig2 * arma::diagvec(arma::inv(arma::trans(adj_X) * adj_X)));
+
+    arma::colvec temp = arma::pow(resid, 2);
+
+    double output = arma::accu(temp);
+
+    return output;
+}
+
 bool sum(std::vector<bool> &v)
 {
     bool output = false;

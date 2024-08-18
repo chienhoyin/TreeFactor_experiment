@@ -439,15 +439,32 @@ void APTreeModel::calculate_criterion_one_variable(State &state, size_t var, std
             // mean variance efficient portfolio
             ft = all_portfolio * weight;
 
+            // instead of multiplying columns of Z to ft_long element-wise, use matrix multiplication. Z here is not for instrumenting but for regressing on ft.
+
+            arma::vec ft_long(*state.num_obs_all, arma::fill::zeros);
+
             for (size_t i = 0; i < state.num_obs_all; i++)
             {
-                for (size_t j = 0; j < (*state.Z).n_cols; j++)
-                {
-                    // interaction term, Z_{it} * ft
-                    temp_month_index = state.months_list->at((*state.months)(i));
-                    this->regressor(i, j) = (*state.Z)(i, j) * ft(temp_month_index, 0);
-                }
+                temp_month = (*state.months)(i);
+                temp_month_index = state.months_list->at(temp_month);
+                ft_long(i) = ft(temp_month_index, 0);
+                
             }
+
+            this->regressor.cols(0, (*state.Z).n_cols - 1) = (*state.Z) * ft_long;
+
+        //        for (size_t i = 0; i < state.num_obs_all; i++)
+
+        //    {
+        //        for (size_t j = 0; j < (*state.Z).n_cols; j++)
+        //        {
+        //            // interaction term, Z_{it} * ft
+        //            temp_month_index = state.months_list->at((*state.months)(i));
+        //            this->regressor(i, j) = (*state.Z)(i, j) * ft(temp_month_index, 0);
+        //        }
+        //    }
+
+
 
             if (state.weighted_loss)
             {
